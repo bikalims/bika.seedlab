@@ -18,5 +18,6 @@
       directory="static"
       />
   <include package=".listingview" />
+  <include package=".controlpanel" />
 
 </configure>

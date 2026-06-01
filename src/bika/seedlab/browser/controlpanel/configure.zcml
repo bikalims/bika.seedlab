@@ -1,0 +1,18 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:zcml="http://namespaces.zope.org/zcml">
+
+  <include package="senaite.core.permissions" />
+
+
+  <!-- Grades Folder -->
+  <browser:page
+      for="bika.seedlab.interfaces.IGrades"
+      name="view"
+      class=".grades.GradesView"
+      permission="senaite.core.permissions.ManageBika"
+      layer="bika.seedlab.interfaces.IBikaSeedlabLayer"/>
+
+
+</configure>
