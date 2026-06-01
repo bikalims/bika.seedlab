@@ -29,7 +29,7 @@ setup(
         "Operating System :: OS Independent",
         "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
     ],
-    keywords='Python Plone CMS',
+    keywords=["bika", "senaite", "lims", "opensource"],
     author='Lunga Baliwe',
     author_email='lunga@bikalabs.com',
     url='https://github.com/collective/bika.seedlab',
@@ -53,6 +53,7 @@ setup(
         'plone.api>=1.8.4',
         'plone.restapi < 8.0.0',
         'plone.app.dexterity',
+        "senaite.core",
     ],
     extras_require={
         'test': [

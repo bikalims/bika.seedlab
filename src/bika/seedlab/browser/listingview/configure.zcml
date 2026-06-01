@@ -1,0 +1,32 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser">
+
+    <!-- sample types listing -->
+    <subscriber
+            for="senaite.core.browser.controlpanel.sampletypes.view.SampleTypesView
+                 zope.interface.Interface"
+            provides="senaite.app.listing.interfaces.IListingViewAdapter"
+            factory=".sampletypes.SampleTypesListingViewAdapter"/>
+
+    <!-- sampling deviations listing -->
+    <subscriber
+            for="senaite.core.browser.controlpanel.samplingdeviations.view.SamplingDeviationsView
+                 zope.interface.Interface"
+            provides="senaite.app.listing.interfaces.IListingViewAdapter"
+            factory=".samplingdeviations.SamplingDeviationListingViewAdapter"/>
+
+    <!-- Vintages listing -->
+    <subscriber
+            for="bika.wine.browser.controlpanel.vintages.VintagesView
+                 zope.interface.Interface"
+            provides="senaite.app.listing.interfaces.IListingViewAdapter"
+            factory=".vintages.VintagesListingViewAdapter"/>
+
+    <!-- Cultivars listing -->
+    <subscriber
+            for="bika.wine.browser.controlpanel.cultivars.CultivarsView
+                 zope.interface.Interface"
+            provides="senaite.app.listing.interfaces.IListingViewAdapter"
+            factory=".cultivars.CultivarsListingViewAdapter"/>
+
+</configure>

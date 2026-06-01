@@ -1,0 +1,24 @@
+<configure xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns="http://namespaces.zope.org/zope"
+           xmlns:zcml="http://namespaces.zope.org/zcml"
+           i18n_domain="bika.seedlab">
+
+    <include package="archetypes.schemaextender"/>
+
+    <adapter name='bika.seedlab.analysisrequest'
+             zcml:condition="installed bika.seedlab"
+             provides="archetypes.schemaextender.interfaces.ISchemaExtender"
+             factory=".analysisrequest.AnalysisRequestSchemaExtender"/>
+
+    <adapter name='bika.seedlab.analysisrequest.schemamodifier'
+             provides="archetypes.schemaextender.interfaces.ISchemaModifier"
+             zcml:condition="installed bika.seedlab"
+             factory=".analysisrequest.AnalysisRequestSchemaModifier" />
+
+    <adapter name='bika.seedlab.batch.schemamodifier'
+             provides="archetypes.schemaextender.interfaces.ISchemaModifier"
+             zcml:condition="installed bika.seedlab"
+             factory=".batch.BatchSchemaModifier" />
+
+
+</configure>

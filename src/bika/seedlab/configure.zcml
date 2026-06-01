@@ -14,12 +14,13 @@
   <!--<includeDependencies package="." />-->
 
   <include package=".browser" />
+  <include package=".extenders" />
 
   <include file="permissions.zcml" />
 
   <genericsetup:registerProfile
       name="default"
-      title="bika.seedlab"
+      title="BIKA SEED LAB"
       directory="profiles/default"
       description="Installs the bika.seedlab add-on."
       provides="Products.GenericSetup.interfaces.EXTENSION"
@@ -28,7 +29,7 @@
 
   <genericsetup:registerProfile
       name="uninstall"
-      title="bika.seedlab (uninstall)"
+      title="BIKA SEED LAB (uninstall)"
       directory="profiles/uninstall"
       description="Uninstalls the bika.seedlab add-on."
       provides="Products.GenericSetup.interfaces.EXTENSION"
