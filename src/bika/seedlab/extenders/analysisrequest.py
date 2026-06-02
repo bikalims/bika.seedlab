@@ -147,9 +147,17 @@ class AnalysisRequestSchemaModifier(object):
         """
         """
         if is_installed():
-            schema["SampleType"].widget.label = _("Kind")
-            schema["ClientSampleID"].widget.label = _("Inspectorate #")
-            schema["ClientReference"].widget.label = _("Stock #")
-            schema["SamplingDeviation"].widget.label = _("Seed Type")
+            schema["SampleType"].widget.label = _(
+                "label_sample_sampletype", default="Kind")
+            schema["SampleType"].widget.description = _(
+                "description_sample_sampletype",
+                default="Select the kind of this sample")
+            schema["ClientSampleID"].widget.label = _("Inspectorate Number")
+            schema["ClientReference"].widget.label = _("Stock Number")
+            schema["SamplingDeviation"].widget.label = _(
+                "label_sample_samplingdeviation", default="Seed Type")
+            schema["SamplingDeviation"].widget.description = _(
+                "description_sample_samplingdeviation",
+                default="Seed Type between the sample and how it was sampled")
 
         return schema

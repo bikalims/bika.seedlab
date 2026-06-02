@@ -22,12 +22,12 @@ class VintagesListingViewAdapter(object):
         if not is_installed():
             return
 
-        self.title = translate(_(
+        self.listing.title = translate(_(
             "listing_cultivars_title",
-            default="Product years")
+            default="Production Years")
         )
         self.listing.columns["Title"]["title"] =  \
-            _(u"listing_vintages_column_title", default=u"Product year")
+            _(u"listing_vintages_column_title", default=u"Production Year")
 
     def folder_item(self, obj, item, index):
         if not is_installed():

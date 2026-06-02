@@ -57,19 +57,22 @@ def setup(portal):
     sample_type_filed.title = _("Kinds")
 
     # Vintages
-    senaite_setup.vintages.setTitle("Production years")
+    senaite_setup.vintages.setTitle("Production Years")
     fti = pt.get("Vintage")
-    fti.title = _("Production year")
+    fti.title = _("Production Year")
+    fti.description = _("Production Year")
 
     # Cultivars
     senaite_setup.cultivars.setTitle("Varieties")
     fti = pt.get("Cultivar")
     fti.title = _("Variety")
+    fti.description = _("Variety")
 
     # Sampling Deviations
     senaite_setup.samplingdeviations.setTitle("Seed Types")
     fti = pt.get("SamplingDeviation")
     fti.title = _("Seed Type")
+    fti.description = _("Seed Type between the sample and how it was sampled")
 
     logger.info("BIKA.SEEDLAB setup [DONE]")
 

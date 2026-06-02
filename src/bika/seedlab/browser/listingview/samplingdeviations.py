@@ -22,7 +22,7 @@ class SamplingDeviationListingViewAdapter(object):
         if not is_installed():
             return
 
-        self.title = translate(_(
+        self.listing.title = translate(_(
             "listing_cultivars_title",
             default="Seed Types")
         )
