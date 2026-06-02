@@ -3,17 +3,30 @@
 from AccessControl import ClassSecurityInfo
 from plone.dexterity.content import Item
 from plone.supermodel import model
+from zope import schema
 from zope.interface import implementer
 
-from bika.lims.interfaces import IDeactivable
-from bika.seedlab.interfaces import IGrade
 from bika.lims import api
+from bika.lims.interfaces import IDeactivable
+from bika.seedlab.config import _
+from bika.seedlab.interfaces import IGrade
 from senaite.core.catalog import SETUP_CATALOG
 
 
 class IGradeSchema(model.Schema):
     """ Marker interface and Dexterity Python Schema for Grade
     """
+    code = schema.TextLine(
+        title=_(
+            u"title_grade_code",
+            default=u"Code"
+        ),
+        description=_(
+            u"description_grade_code",
+            default=u"Code of the grade"
+        ),
+        required=False,
+    )
 
 
 @implementer(IGrade, IGradeSchema, IDeactivable)
