@@ -10,10 +10,20 @@ class IBikaSeedlabLayer(IDefaultBrowserLayer):
 
 
 class IGrades(Interface):
-    """Marker interface for vintages setup folder
+    """Marker interface for grades setup folder
     """
 
 
 class IGrade(Interface):
-    """Marker interface for vintage
+    """Marker interface for grade
+    """
+
+
+class ICertifications(Interface):
+    """Marker interface fo certifications setup folder
+    """
+
+
+class ICertification(Interface):
+    """Marker interface for certification
     """

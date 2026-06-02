@@ -14,5 +14,13 @@
       permission="senaite.core.permissions.ManageBika"
       layer="bika.seedlab.interfaces.IBikaSeedlabLayer"/>
 
+  <!-- Certifications Folder -->
+  <browser:page
+      for="bika.seedlab.interfaces.ICertifications"
+      name="view"
+      class=".certifications.CertificationsView"
+      permission="senaite.core.permissions.ManageBika"
+      layer="bika.seedlab.interfaces.IBikaSeedlabLayer"/>
+
 
 </configure>

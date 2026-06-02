@@ -2,6 +2,9 @@
 <object name="portal_workflow" meta_type="Plone Workflow Tool">
     <property name="title">Workflow definitions for bika.wine</property>
     <bindings>
+        <type type_id="Certification">
+            <bound-workflow workflow_id="senaite_deactivable_type_workflow"/>
+        </type>
         <type type_id="Grade">
             <bound-workflow workflow_id="senaite_deactivable_type_workflow"/>
         </type>

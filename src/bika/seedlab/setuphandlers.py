@@ -86,6 +86,7 @@ def add_dexterity_setup_items(portal):
     # Tuples of ID, Title, FTI
     items = [
         ("grades", "Grades", "Grades"),
+        ("certifications", "Certifications", "Certifications"),
     ]
     setup = api.get_setup()
     add_dexterity_items(setup, items)

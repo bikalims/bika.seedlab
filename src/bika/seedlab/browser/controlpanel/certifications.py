@@ -10,15 +10,15 @@ from senaite.core.permissions import AddAnalysisCategory
 from senaite.app.listing import ListingView
 
 
-class GradesView(ListingView):
+class CertificationsView(ListingView):
 
     def __init__(self, context, request):
-        super(GradesView, self).__init__(context, request)
+        super(CertificationsView, self).__init__(context, request)
 
         self.catalog = 'senaite_catalog_setup'
 
         self.contentFilter = {
-            "portal_type": "Grade",
+            "portal_type": "Certification",
             "sort_on": "sortable_title",
             "sort_order": "ascending",
             "path": {
@@ -28,41 +28,34 @@ class GradesView(ListingView):
         }
 
         self.context_actions = {
-            _("listing_grades_action_add", default="Add"): {
-                "url": "++add++Grade",
+            _("listing_certifications_action_add", default="Add"): {
+                "url": "++add++Certification",
                 "permission": AddAnalysisCategory,
                 "icon": "senaite_theme/icon/plus"
             }
         }
 
         self.title = translate(_(
-            "listing_grades_title",
-            default="Grades")
+            "listing_certications_title",
+            default="Certifications")
         )
-        self.icon = api.get_icon("Grades", html_tag=False)
+        self.icon = api.get_icon("Certifications", html_tag=False)
         self.show_select_column = True
 
         self.columns = collections.OrderedDict((
             ("Title", {
                 "title": _(
                     u"listing_grades_column_title",
-                    default=u"Grade",
+                    default=u"Certification",
                 ),
                 "index": "sortable_title"}),
-            ("Code", {
-                "title": _(
-                    u"listing_grades_column_code",
-                    default=u"Code",
-                ),
-                "sortable": True
-            }),
         ))
 
         self.review_states = [
             {
                 "id": "default",
                 "title": _(
-                    u"listing_grades_state_active",
+                    u"listing_certifications_state_active",
                     default=u"Active",
                 ),
                 "contentFilter": {"is_active": True},
@@ -70,7 +63,7 @@ class GradesView(ListingView):
             }, {
                 "id": "inactive",
                 "title": _(
-                    u"listing_grades_state_inactive",
+                    u"listing_certifications_state_inactive",
                     default=u"Inactive",
                 ),
                 "contentFilter": {'is_active': False},
@@ -78,7 +71,7 @@ class GradesView(ListingView):
             }, {
                 "id": "all",
                 "title": _(
-                    u"listing_grades_state_all",
+                    u"listing_certifications_state_all",
                     default=u"All",
                 ),
                 "contentFilter": {},
