@@ -40,6 +40,7 @@ class SamplesListingViewAdapter(object):
         self.listing.columns.update(direction)
 
         # Translate
+        self.listing.columns["ClientBatchID"]["title"] = _("Crop Number")
         self.listing.columns["Vintage"]["title"] = _("Production Year")
         self.listing.columns["Cultivar"]["title"] = _("Variety")
         self.listing.columns["getSampleTypeTitle"]["title"] = _("Kind")

@@ -21,6 +21,6 @@ class BatchSchemaModifier(object):
         """
         """
         if is_installed():
-            schema["ClientBatchID"].widget.label = "Crop #"
+            schema["ClientBatchID"].widget.label = "Crop Number"
 
         return schema
