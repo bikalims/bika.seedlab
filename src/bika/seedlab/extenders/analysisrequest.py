@@ -33,7 +33,7 @@ certification_field = ExtUIDReferenceField(
     write_permission=FieldEditContact,
     widget=ReferenceWidget(
         label=_(u"Certification"),
-        description=_("Select the certification"),
+        description=_("Select the certification associated with this sample"),
         render_own_label=True,
         size=20,
         catalog_name=SETUP_CATALOG,
@@ -65,7 +65,7 @@ grade_field = ExtUIDReferenceField(
     write_permission=FieldEditContact,
     widget=ReferenceWidget(
         label=_(u"Grade"),
-        description=_("Select the grade"),
+        description=_("Select the grade associated with this sample"),
         render_own_label=True,
         size=20,
         catalog_name=SETUP_CATALOG,
@@ -94,7 +94,7 @@ lot_field = ExtStringField(
     write_permission=FieldEditContact,
     widget=StringWidget(
         label=_(u"Lot"),
-        description=_("Lot"),
+        description=_("The lot assigned to the material"),
         render_own_label=True,
         visible={
             "add": "edit",
@@ -114,7 +114,7 @@ tonnage_field = ExtStringField(
     write_permission=FieldEditContact,
     widget=StringWidget(
         label=_(u"Tonnage"),
-        description=_("Lot"),
+        description=_("The total weight of the lot, batch, or consignment represented by this sample, expressed in tonnes."),
         render_own_label=True,
         visible={
             "add": "edit",
@@ -134,7 +134,7 @@ pack_size_field = ExtStringField(
     write_permission=FieldEditContact,
     widget=StringWidget(
         label=_(u"Pack Size"),
-        description=_("Pack Size"),
+        description=_("The packaging size or unit quantity associated with the sampled product"),
         render_own_label=True,
         visible={
             "add": "edit",
@@ -155,7 +155,7 @@ direction_field = ExtStringField(
     vocabulary=SAMPLE_DIRECTION,
     widget=SelectionWidget(
         label=_("Direction"),
-        description=_("Select the direction"),
+        description=_("Select the direction associated with this sample"),
         format="select",
         visible={
             "add": "edit",
@@ -216,5 +216,15 @@ class AnalysisRequestSchemaModifier(object):
             schema["SamplingDeviation"].widget.description = _(
                 "description_sample_samplingdeviation",
                 default="Seed Type between the sample and how it was sampled")
+            schema["Vintage"].widget.label = _(
+                "label_sample_vintage", default="Production Year")
+            schema["Vintage"].widget.description = _(
+                "description_sample_vintage",
+                default="Select the production year of the sample")
+            schema["Cultivar"].widget.label = _(
+                "label_sample_cultivar", default="Variety")
+            schema["Cultivar"].widget.description = _(
+                "description_sample_cultivar",
+                default="Select the variety associated with this sample")
 
         return schema
