@@ -82,6 +82,7 @@ grade_field = ExtUIDReferenceField(
         colModel=[
             dict(columnName="UID", hidden=True),
             dict(columnName="title", width="60", label=_("Title")),
+            dict(columnName="code", width="60", label=_("Code")),
         ],
     ),
 )
