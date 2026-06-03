@@ -216,7 +216,7 @@ class AnalysisRequestSchemaModifier(object):
                 "label_sample_samplingdeviation", default="Seed Type")
             schema["SamplingDeviation"].widget.description = _(
                 "description_sample_samplingdeviation",
-                default="Seed Type between the sample and how it was sampled")
+                default="Select Fresh or Carry Over")
             schema["Vintage"].widget.label = _(
                 "label_sample_vintage", default="Production Year")
             schema["Vintage"].widget.description = _(
