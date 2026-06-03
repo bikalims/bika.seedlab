@@ -33,7 +33,7 @@ certification_field = ExtUIDReferenceField(
     write_permission=FieldEditContact,
     widget=ReferenceWidget(
         label=_(u"Certification"),
-        description=_("Select the certification associated with this sample"),
+        description=_("Select the certification of this sample"),
         render_own_label=True,
         size=20,
         catalog_name=SETUP_CATALOG,
@@ -114,7 +114,7 @@ tonnage_field = ExtStringField(
     write_permission=FieldEditContact,
     widget=StringWidget(
         label=_(u"Tonnage"),
-        description=_("The total weight of the lot, batch, or consignment represented by this sample, expressed in tonnes."),
+        description=_("Total weight represented by this sample (tonnes)"),
         render_own_label=True,
         visible={
             "add": "edit",
@@ -134,7 +134,7 @@ pack_size_field = ExtStringField(
     write_permission=FieldEditContact,
     widget=StringWidget(
         label=_(u"Pack Size"),
-        description=_("The packaging size or unit quantity associated with the sampled product"),
+        description=_("The packaging size of this sample"),
         render_own_label=True,
         visible={
             "add": "edit",
