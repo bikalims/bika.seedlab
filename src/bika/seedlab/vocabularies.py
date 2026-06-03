@@ -3,7 +3,7 @@
 from bika.seedlab.config import _
 
 SAMPLE_DIRECTION = [
-    (_(""), _("")),
+    (_(""), _("None")),
     (_("inbound"), _("Inbound")),
     (_("outbound"), _("Outbound")),
 ]
