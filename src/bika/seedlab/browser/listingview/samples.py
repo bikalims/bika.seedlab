@@ -24,28 +24,33 @@ class SamplesListingViewAdapter(object):
         if not is_installed():
             return
 
-        certification = [("Certification", {"toggle": False, "title": _("Certification")})]
-        self.listing.columns.update(certification)
-        grade = [
-            ("Grade", {"toggle": False, "title": _("Grade")})
+        certification = [
+            ("Certification", {"toggle": False, "title": _("Certification")})
         ]
+        self.listing.columns.update(certification)
+        grade = [("Grade", {"toggle": False, "title": _("Grade")})]
         self.listing.columns.update(grade)
         lot = [("Lot", {"toggle": False, "title": _("Lot")})]
         self.listing.columns.update(lot)
-        tonnage = [
-            ("Tonnage", {"toggle": False, "title": _("Tonnage")})
-        ]
+        tonnage = [("Tonnage", {"toggle": False, "title": _("Tonnage")})]
         self.listing.columns.update(tonnage)
-        packsize = [
-            ("PackSize", {"toggle": False, "title": _("Pack Size")})
-        ]
+        packsize = [("PackSize", {"toggle": False, "title": _("Pack Size")})]
         self.listing.columns.update(packsize)
-        direction = [
-            ("Direction", {"toggle": False, "title": _("Direction")})
-        ]
+        direction = [("Direction", {"toggle": False, "title": _("Direction")})]
         self.listing.columns.update(direction)
-        self.listing.columns["Vintage"]["title"] = "Production Year"
-        self.listing.columns["Cultivar"]["title"] = "Variety"
+
+        # Translate
+        self.listing.columns["Vintage"]["title"] = _("Production Year")
+        self.listing.columns["Cultivar"]["title"] = _("Variety")
+        self.listing.columns["getSampleTypeTitle"]["title"] = _("Kind")
+        self.listing.columns["getClientSampleID"]["title"] = _(
+            "Inspectorate Number")
+        self.listing.columns["getClientReference"]["title"] = _(
+            "Stock Number")
+        self.listing.columns["SamplingDeviation"]["title"] = _(
+            "Seed Type")
+
+        # Review states
         for i in range(len(self.listing.review_states)):
             self.listing.review_states[i]["columns"].append("Certification")
             self.listing.review_states[i]["columns"].append("Grade")
