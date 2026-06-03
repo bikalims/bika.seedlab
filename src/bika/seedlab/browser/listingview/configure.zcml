@@ -29,4 +29,11 @@
             provides="senaite.app.listing.interfaces.IListingViewAdapter"
             factory=".cultivars.CultivarsListingViewAdapter"/>
 
+    <!-- Samples list -->
+    <subscriber
+            for="senaite.core.browser.samples.view.SamplesView
+                 zope.interface.Interface"
+            provides="senaite.app.listing.interfaces.IListingViewAdapter"
+            factory=".samples.SamplesListingViewAdapter"/>
+
 </configure>
