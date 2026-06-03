@@ -89,5 +89,5 @@ class GradesView(ListingView):
     def folderitem(self, obj, item, index):
         obj = api.get_object(obj)
         item["replace"]["Title"] = get_link_for(obj)
-
+        item["replace"]["Code"] = obj.code
         return item
