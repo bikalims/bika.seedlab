@@ -195,7 +195,7 @@ class AnalysisRequestSchemaExtender(object):
 
 class AnalysisRequestSchemaModifier(object):
     adapts(IAnalysisRequest)
-    implements(ISchemaModifier)
+    implements(ISchemaModifier, IBrowserLayerAwareExtender)
     layer = IBikaSeedlabLayer
 
     def __init__(self, context):

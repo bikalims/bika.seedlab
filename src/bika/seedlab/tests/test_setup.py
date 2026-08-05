@@ -41,6 +41,19 @@ class TestSetup(unittest.TestCase):
             IBikaSeedlabLayer,
             utils.registered_layers())
 
+    def test_schema_modifiers_are_browser_layer_aware(self):
+        """Seed Lab schema changes must only apply to installed sites."""
+        from archetypes.schemaextender.interfaces import (
+            IBrowserLayerAwareExtender)
+        from bika.seedlab.extenders.analysisrequest import (
+            AnalysisRequestSchemaModifier)
+        from bika.seedlab.extenders.batch import BatchSchemaModifier
+
+        self.assertTrue(IBrowserLayerAwareExtender.implementedBy(
+            AnalysisRequestSchemaModifier))
+        self.assertTrue(IBrowserLayerAwareExtender.implementedBy(
+            BatchSchemaModifier))
+
 
 class TestUninstall(unittest.TestCase):
 

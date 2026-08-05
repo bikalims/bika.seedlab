@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from archetypes.schemaextender.interfaces import ISchemaModifier
+from archetypes.schemaextender.interfaces import IBrowserLayerAwareExtender
 from zope.interface import implements
 from zope.component import adapts
 
@@ -11,7 +12,7 @@ from bika.lims.interfaces import IBatch
 
 class BatchSchemaModifier(object):
     adapts(IBatch)
-    implements(ISchemaModifier)
+    implements(ISchemaModifier, IBrowserLayerAwareExtender)
     layer = IBikaSeedlabLayer
 
     def __init__(self, context):
