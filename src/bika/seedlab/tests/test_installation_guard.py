@@ -4,6 +4,8 @@ import unittest
 
 from bika.seedlab import config
 from bika.seedlab.extenders.analysisrequest import AnalysisRequestSchemaExtender
+from bika.seedlab.extenders.batch import BatchSchemaModifier
+from bika.lims.content.batch import Batch
 
 
 class TestInstallationGuard(unittest.TestCase):
@@ -47,3 +49,16 @@ class TestInstallationGuard(unittest.TestCase):
     def test_missing_installer_disables_product(self):
         self.installer = None
         self.assertFalse(config.is_installed())
+
+    def test_stale_layer_does_not_change_batch_add_label(self):
+        schema = Batch.schema.copy()
+        original_label = schema["ClientBatchID"].widget.label
+        result = BatchSchemaModifier(None).fiddle(schema)
+        self.assertIs(result, schema)
+        self.assertEqual(schema["ClientBatchID"].widget.label, original_label)
+
+    def test_installed_site_has_crop_number_label(self):
+        self.installed = True
+        schema = Batch.schema.copy()
+        BatchSchemaModifier(None).fiddle(schema)
+        self.assertEqual(schema["ClientBatchID"].widget.label, "Crop Number")
