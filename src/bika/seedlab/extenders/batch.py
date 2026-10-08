@@ -22,6 +22,8 @@ class BatchSchemaModifier(object):
         """
         """
         if is_installed():
+            # schemaextender shares base fields between sites and requests.
+            schema._fields["ClientBatchID"] = schema["ClientBatchID"].copy()
             schema["ClientBatchID"].widget.label = "Crop Number"
 
         return schema

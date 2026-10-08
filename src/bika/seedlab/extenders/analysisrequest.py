@@ -207,6 +207,10 @@ class AnalysisRequestSchemaModifier(object):
         """
         """
         if is_installed():
+            # Isolate widgets before changing labels on the shallow schema.
+            for name in ("SampleType", "ClientSampleID", "ClientReference",
+                         "SamplingDeviation", "Vintage", "Cultivar"):
+                schema._fields[name] = schema[name].copy()
             schema["SampleType"].widget.label = _(
                 "label_sample_sampletype", default="Kind")
             schema["SampleType"].widget.description = _(
