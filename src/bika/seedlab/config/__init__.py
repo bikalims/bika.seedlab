@@ -5,6 +5,7 @@ from zope.i18nmessageid import MessageFactory
 
 from bika.seedlab.interfaces import IBikaSeedlabLayer
 from bika.lims.api import get_request
+from bika.lims.api import get_tool
 
 PROFILE_ID = "profile-bika.seedlab:default"
 PROJECTNAME = "bika.seedlab"
@@ -14,9 +15,14 @@ _ = MessageFactory(PROJECTNAME)
 
 
 def is_installed():
-    """Returns whether the product is installed or not"""
+    """Require site installation as well as the request browser layer."""
     request = get_request()
-    return IBikaSeedlabLayer.providedBy(request)
+    if not IBikaSeedlabLayer.providedBy(request):
+        return False
+    # A stale browser layer must not activate an uninstalled add-on.
+    installer = get_tool("portal_quickinstaller", default=None)
+    return (installer is not None
+            and installer.isProductInstalled(PROJECTNAME))
 
 
 def check_installed(default_return):

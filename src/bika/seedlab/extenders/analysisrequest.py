@@ -190,6 +190,8 @@ class AnalysisRequestSchemaExtender(object):
         return schematas
 
     def getFields(self):
+        if not is_installed():
+            return []
         return self.fields
 
 
